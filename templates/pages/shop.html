@@ -1,0 +1,76 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block content %}
+   <section>
+        <div class="container">
+              <h1 class="section-header">Каталог товаров</h1>
+
+            <div class="shop-wrapper">
+
+
+                <div class="shop-left">
+                    <h3>Фильтр</h3>
+                    <button class="accordion">Section 1</button>
+
+                    <div class="panel">
+                        <label> <input type="checkbox"> ghgfh</label>
+
+                    </div>
+
+                    <button class="accordion">Section 1</button>
+                    <div class="panel">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+                <div class="shop-right">
+                     <div class="shop-top">
+                    <div  class="shop-top-input">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="5 5 14 14" class="searchbox3010470100__icon" width="20" height="20" data-hook="search-icon"><path fill="#738fa3" d="M15.683 14.6l3.265 3.265a.2.2 0 010 .282l-.8.801a.2.2 0 01-.283 0l-3.266-3.265a5.961 5.961 0 111.084-1.084zm-4.727 1.233a4.877 4.877 0 100-9.754 4.877 4.877 0 000 9.754z"></path></svg>
+                        <input type="text">
+                    </div>
+                    <div class="shop-top-select">
+                        <select name="" id="">
+                            <option value="">ewrwer</option>
+                        </select>
+                    </div>
+
+                </div>
+                    <div class="items">
+                        {% for item in all_items %}
+                        <div class="item">
+                        <div class="item-img">
+                             <img src="{{ item.image.url }}" alt="">
+                            <p class="item-view">Быстрый просмотр</p>
+                        </div>
+
+                        <p class="item-name">{{ item.name }}</p>
+                        <p class="item-price">{{ item.price }} ₽</p>
+
+                        <p class="item-cart">Добавить в корзину</p>
+
+                    </div>
+                        {% endfor %}
+
+
+                    </div>
+
+                    <div class="shop-right-paginator">
+
+                        <ul class="paginator">
+                            <li class="paginator-item"><a class="paginator-link link-active" href=""><</a></li>
+                            <li class="paginator-item"><a class="paginator-link" href="">1</a></li>
+                            <li class="paginator-item"><a class="paginator-link" href="">2</a></li>
+                            <li class="paginator-item"><a class="paginator-link" href="">></a></li>
+                        </ul>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block content %}
+
+    <section>
+        <div class="container">
+
+               <h1 style="font-size: 30px" class="section-header">Несколько последних проектов<br>
+по сборке электрощитового оборудования
+</h1>
+            {% for project in all_projects %}
+              <div class="project ">
+                    <div class="project-img">
+                        <img src="{{ project.icon.url }}" alt="">
+                        <p>Дата изготовления - {{ project.date }}</p>
+                    </div>
+                    <div class="project-text">
+                        <h3>{{ project.name }}</h3>
+                        <p>{{ project.text }}</p>
+
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </section>
+
+    <section style="background:#ededed; margin-bottom: 0">
+        <div class="container">
+            <div class="callback-small">
+                <p>Чем можем помочь? Свяжитесь с нами</p>
+                <a href="mailto:info@asprgroup.ru" type="submit" class="orange-btn">Отправить</a>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

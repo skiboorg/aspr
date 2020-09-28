@@ -1,0 +1,87 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="banner" style="background: url({{ page_content.banner_img.url }})">
+                {{ page_content.banner_text | safe }}
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h3 class="section-header">{{ page_content.block1 }}</h3>
+            <div class="features">
+                {% for block1item in page_content.block1items.all %}
+                <div class="features-item">
+                    <div class="features-item__header">
+                        <img src="{{ block1item.icon.url }}" alt="">
+                       <p>{{ block1item.name }}</p>
+                    </div>
+                    <p>{{ block1item.text }}</p>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+     <section>
+        <div class="container">
+            <h3 class="section-header">{{ page_content.block2 }}</h3>
+            <p class="mb-30">{{ page_content.block2_text }}</p>
+             <div class="production">
+                 {% for item in page_content.manufactoryitems.all %}
+                    <a class="blue-btn" href="{% url 'proizvodstvo_item' item.name_slug %}">{{ item.name }}</a>
+                 {% endfor %}
+
+
+
+            </div>
+        </div>
+     </section>
+    <section>
+        <div class="container">
+            <h3 class="section-header">{{ page_content.block3 }}</h3>
+            <div class="partners">
+                {% for item in page_content.partneritems.all %}
+                    <img src="{{ item.image.url }}" alt="">
+                 {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h3 class="section-header">{{ page_content.block4 }}</h3>
+            <div class="we-offer">
+                {% for item in page_content.featureitems.all %}
+                   <div class="we-offer-item">
+                    <p class="we-offer-item__title">{{ item.name }}</p>
+                    <p>{{ item.text }}</p>
+                </div>
+                 {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h3 class="section-header">Чем можем помочь? Свяжитесь с нами!</h3>
+            <form class="callback">
+                <div class="callback-group">
+                    <input type="text" placeholder="Имя">
+                    <input type="text" placeholder="Эл. почта">
+                    <input type="text" placeholder="Номер телефона">
+                </div>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Текст"></textarea>
+                <div style="text-align: end">
+                    <button type="submit" class="orange-btn">Отправить</button>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+{% endblock %}
