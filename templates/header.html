@@ -28,13 +28,13 @@
         <div class="header-menu">
             <div class="header-menu__wrapper">
                 <ul class="header-menu__nav">
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link" href="/">Главная</a></li>
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link"  href="{% url 'avtomatizaciya' %}">Автоматизация</a></li>
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link"  href="{% url 'proizvodstvo' %}">Производство</a></li>
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link"  href="{% url 'projects' %}">Проекты</a></li>
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link"  href="{% url 'napravleniya' %}">Направления</a></li>
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link"  href="{% url 'about' %}">О нас</a></li>
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link"  href="{% url 'shop_index' %}">Магазин</a></li>
+                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if ind %}link-active{% endif %}" href="/">Главная</a></li>
+                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if avt %}link-active{% endif %}"  href="{% url 'avtomatizaciya' %}">Автоматизация</a></li>
+                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if pr %}link-active{% endif %}"  href="{% url 'proizvodstvo' %}">Производство</a></li>
+                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if prj %}link-active{% endif %}"  href="{% url 'projects' %}">Проекты</a></li>
+                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if nap %}link-active{% endif %}"  href="{% url 'napravleniya' %}">Направления</a></li>
+                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if ab %}link-active{% endif %}"  href="{% url 'about' %}">О нас</a></li>
+                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if shp %}link-active{% endif %}"  href="{% url 'shop_index' %}">Магазин</a></li>
                 </ul>
             </div>
         </div>
