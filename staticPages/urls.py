@@ -10,6 +10,7 @@ urlpatterns = [
     path('projects', views.projects, name='projects'),
     path('napravleniya', views.napravleniya, name='napravleniya'),
     path('about', views.about, name='about'),
+    path('create_item', views.create_item, name='create_item'),
 
     path('index.html', RedirectView.as_view(url='/', permanent=False), name='index1'),
     path('index.php', RedirectView.as_view(url='/', permanent=False), name='index2'),

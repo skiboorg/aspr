@@ -1,0 +1,117 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block content %}
+    <section>
+        <div class="container">
+            <h1 class="section-header">{{ item.name }}</h1>
+            <div style="margin-bottom: 40px" class="modal-body ">
+                <div class="modal-body-img">
+                    <img src="{{ item.get_image }}" alt="">
+                </div>
+                <div class="modal-body-info">
+                    <p class="modal-body-info__name">{{ item.name }}</p>
+                    <p class="modal-body-info__price">{{ item.price }} ₽</p>
+                    <p class="modal-body-info__art">Артикул: {{ item.article }}</p>
+
+                    <p class="modal-body-info__price">Характеристики</p>
+                    {% if item.pump_count %}
+                        <p class="modal-body-info__label">Кол-во насосов: {{ item.pump_count }}</p>
+                    {% endif %}
+                    {% if item.pump_power and item.pump_power != '0' %}
+                        <p class="modal-body-info__label">Мощность насоса, кВт: {{ item.pump_power }}</p>
+                    {% endif %}
+                    {% if item.privod_type %}
+                        <p class="modal-body-info__label">Тип привода: {{ item.privod_type }}</p>
+                    {% endif %}
+                    {% if item.engine_count %}
+                        <p class="modal-body-info__label">Кол-во двигателей: {{ item.engine_count }}</p>
+                    {% endif %}
+                    {% if item.engine_power %}
+                        <p class="modal-body-info__label">Мощность двигателя, кВт: {{ item.engine_power }}</p>
+                    {% endif %}
+                    {% if item.engine_tok %}
+                        <p class="modal-body-info__label">Ток двигателя:{{ item.engine_tok }}</p>
+                    {% endif %}
+                    {% if item.engine_start %}
+                        <p class="modal-body-info__label">Способ запуска двигателя: {{ item.engine_start }}</p>
+                    {% endif %}
+                    {% if item.is_counters %}
+                        <p class="modal-body-info__label">Наличие счетчиков: Да  </p>
+                    {% endif %}
+                    {% if item.number_zadvigek %}
+                        <p class="modal-body-info__label">Кол-во задвижек: {{ item.number_zadvigek }}</p>
+                    {% endif %}
+                    {% if item.inputs %}
+                        <p class="modal-body-info__label">Кол-во вводов: {{ item.inputs }}</p>
+                    {% endif %}
+                    {% if item.nominal_tok %}
+                        <p class="modal-body-info__label">Номинальный ток: {{ item.nominal_tok }}</p>
+                    {% endif %}
+                    {% if item.is_avr %}
+                        <p class="modal-body-info__label">Наличие АВР: {{ item.is_avr }}</p>
+                    {% endif %}
+                    {% if item.defence %}
+                        <p class="modal-body-info__label">Степень защиты, IP: {{ item.defence }}</p>
+                    {% endif %}
+                    {% if item.setup_type %}
+                        <p class="modal-body-info__label">Способ установки: {{ item.setup_type }}</p>
+                    {% endif %}
+                    {% if item.size_shelter %}
+                        <p class="modal-body-info__label">Размер шкафа ШхГхВ: {{ item.size_shelter }}</p>
+                    {% endif %}
+
+                    {% if item.napryag %}
+                            <p class="modal-body-info__label">Напряжение, В: {{ item.napryag }}</p>
+                        {% endif %}
+                    {% if item.power %}
+                        <p class="modal-body-info__label">Мощность, кВт: {{ item.power }}</p>
+                    {% endif %}
+                    {% if item.tok_str %}
+                        <p class="modal-body-info__label">Сила тока, А: {{ item.tok_str }}</p>
+                    {% endif %}
+                    {% if item.number_faz %}
+                        <p class="modal-body-info__label">Количество фаз: {{ item.number_faz }}</p>
+                    {% endif %}
+                    {% if item.series %}
+                        <p class="modal-body-info__label">Серия: {{ item.series }}</p>
+                    {% endif %}
+                    {% if item.warranty %}
+                        <p class="modal-body-info__label">Гарантия: {{ item.warranty }}</p>
+                    {% endif %}
+                    {% if item.life_time %}
+                        <p class="modal-body-info__label">Срок эксплуатации: {{ item.life_time }}</p>
+                    {% endif %}
+
+                    {% if item.work_type %}
+                        <p class="modal-body-info__label">Режим работы: {{ item.work_type }}</p>
+                    {% endif %}
+                    {% if item.work_temperature %}
+                        <p class="modal-body-info__label">Температурный режим: {{ item.work_temperature }}</p>
+                    {% endif %}
+                    {% if item.parametr_check %}
+                        <p class="modal-body-info__label">Контроль параметров: {{ item.parametr_check }}</p>
+                    {% endif %}
+                    {% if item.kabel_input %}
+                        <p class="modal-body-info__label">Кабельный ввод: {{ item.kabel_input }}</p>
+                    {% endif %}
+
+
+
+
+
+
+
+
+                    <a href="" class="modal-body-info__btn">Заказать</a>
+
+                </div>
+
+
+            </div>
+{% if item.full_description %}
+                       <div class="">{{ item.full_description | safe }}</div>
+                    {% endif %}
+
+        </div>
+    </section>
+{% endblock %}

@@ -9,18 +9,44 @@
 
 
                 <div class="shop-left">
-                    <h3>Фильтр</h3>
-                    <button class="accordion">Section 1</button>
+                    <h3 style="margin-bottom: 20px">Каталог</h3>
+                    <ul style="margin-bottom: 40px" class="catalog-wrapper ">
+                        {% for cat in all_cats %}
+                        <li class="catalog-item {% if cat.subcats.all %}has-subitems subitemsActive{% endif %}
+                                    ">
+                            {% if cat.subcats.all %}
+                                <p class="catalog-link {% if cat.name_slug == category.name_slug %}catalogLinkActive{% endif %}">{{ cat.name }}</p>
+                                {% else %}
+                                <a class="catalog-link {% if cat.name_slug == category.name_slug %}catalogLinkActive{% endif %}" href="{% url 'shop_cat' cat.name_slug %}">{{ cat.name }}</a>
+                             {% endif %}
 
-                    <div class="panel">
-                        <label> <input type="checkbox"> ghgfh</label>
+                            {% if cat.subcats.all %}
 
-                    </div>
+                                <ul class="subitems">
+                                {% for subcat in  cat.subcats.all%}
+                                <li class="subitems-item">
+                                    <a class="catalog-link {% if subcat.name_slug == subcategory.name_slug %}catalogLinkActive{% endif %} " href="{% url 'shop_subcat' cat.name_slug subcat.name_slug %}">{{ subcat.name }}</a>
+                                </li>
+                                {% endfor %}
 
-                    <button class="accordion">Section 1</button>
-                    <div class="panel">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
+                            </ul>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+{#                    <h3>Фильтр</h3>#}
+{#                    <button class="accordion">Section 1</button>#}
+{##}
+{#                    <div class="panel">#}
+{#                        <label> <input type="checkbox"> ghgfh</label>#}
+{##}
+{#                    </div>#}
+{##}
+{#                    <button class="accordion">Section 1</button>#}
+{#                    <div class="panel">#}
+{#                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>#}
+{#                    </div>#}
                 </div>
                 <div class="shop-right">
                      <div class="shop-top">
@@ -30,7 +56,7 @@
                     </div>
                     <div class="shop-top-select">
                         <select name="" id="">
-                            <option value="">ewrwer</option>
+{#                            <option value="">ewrwer</option>#}
                         </select>
                     </div>
 
@@ -39,14 +65,17 @@
                         {% for item in all_items %}
                         <div class="item">
                         <div class="item-img">
-                             <img src="{{ item.image.url }}" alt="">
-                            <p class="item-view">Быстрый просмотр</p>
+                            <a href="{% url 'shop_item' item.name_slug %}">
+                                 <img src="{{ item.get_image }}" alt="">
+                            </a>
+
+{#                            <p class="item-view">Быстрый просмотр</p>#}
                         </div>
 
-                        <p class="item-name">{{ item.name }}</p>
+                            <a class="item-name" href="{% url 'shop_item' item.name_slug %}">{{ item.name }}</a>
                         <p class="item-price">{{ item.price }} ₽</p>
 
-                        <p class="item-cart">Добавить в корзину</p>
+{#                        <p class="item-cart">Добавить в корзину</p>#}
 
                     </div>
                         {% endfor %}
@@ -72,5 +101,20 @@
     </section>
 
 
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
 
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
 {% endblock %}

@@ -17,7 +17,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('staticPages.urls')),
-    path('shop', include('shop.urls')),
+    path('catalog/', include('shop.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     # path('sitemap.xml', sitemap, {'sitemaps':sitemaps}),
 
