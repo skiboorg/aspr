@@ -1,10 +1,10 @@
 from django.shortcuts import render,get_object_or_404
 from .models import *
-from openpyxl import load_workbook
-import urllib
-from urllib.parse import urlparse
-import requests
-from django.core.files.base import ContentFile
+# from openpyxl import load_workbook
+# import urllib
+# from urllib.parse import urlparse
+# import requests
+# from django.core.files.base import ContentFile
 from shop.models import *
 
 def avtomatizaciya(request):
