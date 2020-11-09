@@ -848,7 +848,7 @@ span.sim-dot {
 .shop-top-input {
   display: inline-block;
   position: relative;
-  margin-right: 20px;
+
 }
 
 .shop-top-input svg {
@@ -888,9 +888,14 @@ span.sim-dot {
 .item {
   border: 1px solid #154566;
   position: relative;
-  padding: 0 20px 40px 20px;
+
 }
 
+.item-img img {
+  width: 150px;
+  height: 285px;
+  object-fit: cover;
+}
 .item-img {
   text-align: center;
   position: relative;
@@ -899,7 +904,9 @@ span.sim-dot {
   color: #000000;
 }
 .item-price {
-  font-size: 14px;
+  font-size: 16px;
+  padding: 0 10px;
+  font-weight: bold;
 }
 
 .item-view {
@@ -970,15 +977,18 @@ span.sim-dot {
   margin-right: 15px;
 }
 
+
 .paginator-item:last-child {
   margin-right: 0;
 }
 
 .paginator-link {
   font-size: 18px;
+  color: #000000;
 }
 
-.paginator-link.link-active {
+.paginator-item.link-active a{
+
   color: red;
 }
 
@@ -1002,7 +1012,7 @@ span.sim-dot {
   position: absolute;
   background: #ffffff;
   width: 300px;
-  left: -200px;
+
   padding: 10px 0;
   top: 37px;
   border-bottom: 2px solid #154566;
@@ -1059,11 +1069,13 @@ span.sim-dot {
 .has-submenu-inner:hover > div {
   opacity: 1;
   pointer-events: all;
-  top: 0;
+  top: -10px;
+  right: -200px;
+  left: unset;
 }
 
 .catalog-item {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .catalog-item:last-child {
@@ -1079,6 +1091,7 @@ span.sim-dot {
 .catalog-link {
   color: #000000;
   text-transform: uppercase;
+  font-size: 15px;
 }
 
 .catalog-link.catalogLinkActive {
@@ -1098,7 +1111,7 @@ span.sim-dot {
 }
 
 .subitems-item {
-  margin-bottom: 5px;
+  /*margin-bottom: 5px;*/
 }
 
 .subitems-item:last-child {
