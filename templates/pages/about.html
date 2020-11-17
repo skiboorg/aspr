@@ -8,7 +8,7 @@
                 {{ content.content |safe }}
             </div>
         </div>
-        <div class="container">
+        <div class="container slider">
             <div style="margin-bottom: 40px; background: #ededed; padding: 40px 0" class="glide">
                 <div class="glide__track" data-glide-el="track">
                     <div class="glide__slides">
@@ -149,25 +149,5 @@
             </div>
         </div>
     </section>
-    <script>
-        var glide = new Glide('.glide', {
-            type: 'carousel',
 
-            perView: 1,
-            //focusAt: 'center',
-            gap: 50,
-            //autoplay:3000,
-
-            breakpoints:{
-                900:{
-                    perView: 3,
-                },
-                450:{
-                    perView: 1,
-                }
-            }
-        })
-
-        glide.mount()
-    </script>
 {% endblock %}

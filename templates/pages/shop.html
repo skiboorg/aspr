@@ -10,16 +10,47 @@
 
 
                 <div class="shop-left">
+                <div class="shop-catalog-mobile">
+                <button class="accordion">Каталог</button>
+                        <div class="panel">
+                               <ul style="margin-bottom: 40px" class="catalog-wrapper ">
+                        {% for cat in all_cats %}
+                            <li class="catalog-item {% if cat.subcats.all %}has-subitems subitemsActive{% endif %}
+                                    ">
+                                {% if cat.subcats.all %}
+                                    <p class="catalog-link {% if cat.name_slug == category.name_slug %}catalogLinkActive{% endif %}">{{ cat.name }}</p>
+                                {% else %}
+                                    <a class="catalog-link {% if cat.name_slug == category.name_slug %}catalogLinkActive{% endif %}" href="{% url 'shop_cat' cat.name_slug %}">{{ cat.name }}</a>
+                                {% endif %}
 
-                    <div style="margin-bottom: 10px"  class="shop-top-input ">
+                                {% if cat.subcats.all %}
+
+                                    <ul class="subitems">
+                                        {% for subcat in  cat.subcats.all%}
+                                            <li class="subitems-item">
+                                                <a class="catalog-link {% if subcat.name_slug == subcategory.name_slug %}catalogLinkActive{% endif %} " href="{% url 'shop_subcat' cat.name_slug subcat.name_slug %}">{{ subcat.name }}</a>
+                                            </li>
+                                        {% endfor %}
+
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                        </div>
+
+                </div>
+<div class="shop-catalog-main">
+               <div style="margin-bottom: 10px"  class="shop-top-input ">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="5 5 14 14" class="searchbox3010470100__icon" width="20" height="20" data-hook="search-icon"><path fill="#738fa3" d="M15.683 14.6l3.265 3.265a.2.2 0 010 .282l-.8.801a.2.2 0 01-.283 0l-3.266-3.265a5.961 5.961 0 111.084-1.084zm-4.727 1.233a4.877 4.877 0 100-9.754 4.877 4.877 0 000 9.754z"></path></svg>
                         <input type="text">
                     </div>
-                    <div style="margin-bottom: 10px"  class="shop-top-select">
-                        <select style="width: 100%" name="" id="">
+{#                    <div style="margin-bottom: 10px"  class="shop-top-select">#}
+{#                        <select style="width: 100%" name="" id="">#}
                             {#                            <option value="">ewrwer</option>#}
-                        </select>
-                    </div>
+{#                        </select>#}
+{#                    </div>#}
 
 
                     <h3 >Каталог</h3>
@@ -60,6 +91,8 @@
                     {#                    <div class="panel">#}
                     {#                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>#}
                     {#                    </div>#}
+</div>
+
                 </div>
                 <div class="shop-right">
 
@@ -89,28 +122,28 @@
                     </div>
 
                     <div class="shop-right-paginator">
-                       <ul class="paginator">
-{% if all_items.has_previous %}
-                                    <li class="paginator-item">
-                                        <a class="paginator-link" href="?{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
+                        <ul class="paginator">
+                            {% if all_items.has_previous %}
+                                <li class="paginator-item">
+                                    <a class="paginator-link" href="?{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% for pg in all_items.paginator.page_range %}
+                                {% if all_items.number == pg %}
+                                    <li class="paginator-item link-active"><a class="paginator-link" href="?{% if pg > 1 %}page={{ pg }}{% endif %}{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}">{{pg}}</a></li>
+                                {% elif pg > all_items.number|add:'-6' and pg < all_items.number|add:'6' %}
+                                    <li class="paginator-item"><a class="paginator-link" href="?{% if pg > 1 %}page={{ pg }}{% endif %}{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}">{{pg}}</a></li>
                                 {% endif %}
-                                {% for pg in all_items.paginator.page_range %}
-                                    {% if all_items.number == pg %}
-                                        <li class="paginator-item link-active"><a class="paginator-link" href="?{% if pg > 1 %}page={{ pg }}{% endif %}{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}">{{pg}}</a></li>
-                                    {% elif pg > all_items.number|add:'-6' and pg < all_items.number|add:'6' %}
-                                        <li class="paginator-item"><a class="paginator-link" href="?{% if pg > 1 %}page={{ pg }}{% endif %}{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}">{{pg}}</a></li>
-                                    {% endif %}
-                                {% endfor %}
-                                {% if all_items.has_next %}
-                                    <li class="paginator-item">
-                                        <a class="paginator-link" href="?page={{ all_items.paginator.num_pages }}{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                {% endif %}
+                            {% endfor %}
+                            {% if all_items.has_next %}
+                                <li class="paginator-item">
+                                    <a class="paginator-link" href="?page={{ all_items.paginator.num_pages }}{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
 
 
                         </ul>
@@ -124,20 +157,5 @@
     </section>
 
 
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
 
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
-        }
-    </script>
 {% endblock %}
