@@ -1559,6 +1559,9 @@ span.sim-dot {
 }
 
 @media screen and (max-width: 500px) {
+  .modal-body{flex-wrap: wrap}
+  .modal-body-img{flex-basis: 100%}
+  .modal-body-info{flex-basis: 100%}
   .sim-slider{
     height: 330px;
   }

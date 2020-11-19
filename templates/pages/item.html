@@ -102,8 +102,23 @@
 
 
 
-                    <a href="" class="modal-body-info__btn">Заказать</a>
+                    <a href="" @click.prevent="dialogVisible = true" class="modal-body-info__btn">Заказать</a>
 
+
+<el-dialog
+
+  :visible.sync="dialogVisible"
+    :show-close="false"
+
+  >
+  <el-input style="margin-bottom: 10px" placeholder="Ваше имя" v-model="name"></el-input>
+    <el-input placeholder="Ваш телефон" v-model="phone"></el-input>
+
+  <span slot="footer" class="dialog-footer">
+<a href="" @click.prevent="dialogVisible = true" class="modal-body-info__btn">Заказать</a>
+
+  </span>
+</el-dialog>
                 </div>
 
 
