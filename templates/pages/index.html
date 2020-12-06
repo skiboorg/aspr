@@ -33,9 +33,6 @@
                  {% for item in page_content.manufactoryitems.all %}
                     <a class="blue-btn" href="{% url 'proizvodstvo_item' item.name_slug %}">{{ item.name }}</a>
                  {% endfor %}
-
-
-
             </div>
         </div>
      </section>
@@ -46,8 +43,6 @@
                 {% for item in page_content.partneritems.all %}
                     <img style="width: 250px;height: auto" src="{{ item.image.url }}" alt="">
                  {% endfor %}
-
-
             </div>
         </div>
     </section>
@@ -61,8 +56,6 @@
                     <p>{{ item.text }}</p>
                 </div>
                  {% endfor %}
-
-
             </div>
         </div>
     </section>
@@ -75,7 +68,7 @@
                     <input type="text" placeholder="Эл. почта">
                     <input type="text" placeholder="Номер телефона">
                 </div>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Текст"></textarea>
+                <textarea name="" cols="30" rows="10" placeholder="Текст"></textarea>
                 <div style="text-align: end">
                     <button type="submit" class="orange-btn">Отправить</button>
                 </div>

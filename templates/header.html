@@ -1,94 +1,87 @@
-  <header class="header">
-        <div class="container header-top">
-            <div class="header-inner">
-                <div class="header-logo">
-                    <a href="/">
-
-                        <svg preserveAspectRatio="xMidYMid meet" id="comp-jnkon541svgcontent" data-bbox="28.5 28 143 144" viewBox="28.5 28 143 144" height="40" width="40" xmlns="http://www.w3.org/2000/svg" data-type="color" role="img">
-                            <g>
-                                <path  style="fill: rgba(21, 69, 102, 1)" d="M171.5 108.6V91.3l-16.1-5.8c-1.4-5.3-3.5-10.2-6.2-14.8l7.4-15.5L144.5 43 129 50.4c-4.6-2.7-9.4-4.8-14.7-6.2L108.5 28H91.3l-5.8 16.2c-5.3 1.4-10.1 3.5-14.7 6.2L55.4 43l-12 12.2 7.4 15.5c-2.7 4.6-4.8 9.6-6.2 14.8l-16.1 5.8v17.3l16.1 5.8c1.4 5.3 3.5 10.2 6.2 14.8l-7.4 15.6L55.5 157l15.5-7.4c4.6 2.7 9.5 4.8 14.7 6.2l5.8 16.2h17.2l5.8-16.2c5.3-1.4 10.1-3.5 14.7-6.2l15.4 7.4 12.1-12.2-7.4-15.5c2.7-4.6 4.8-9.5 6.2-14.8l16-5.9zM100 128.8c-15.8 0-28.6-12.9-28.6-28.8S84.2 71.2 100 71.2s28.6 12.9 28.6 28.8-12.7 28.8-28.6 28.8z" fill="#736357" data-color="1"></path>
-                            </g>
-                        </svg>
-                        АСПР ГРУПП
-                    </a>
-
-                </div>
-                <p class="header-text">Производитель электрооборудования и систем автоматизации</p>
-                <div class="header-contact">
-                    <p class="header-contact__phone"><a href="tel:+78129208162">+7 (812) 920-81-62</a></p>
-                    <p class="header-contact__email"><a href="mailto:info@asprgroup.ru">info@asprgroup.ru</a></p>
-                </div>
-            <div @click="mobileMenuActive ? mobileMenuActive = false: mobileMenuActive=true" class="header-cart">
-                    <span v-if="!mobileMenuActive" style="font-size: 30px">&#9776;</span>
-                    <span v-else style="font-size: 30px">&#10006;</span>
-                </div>
+<header class="header">
+    <div class="container header-top">
+        <div class="header-inner">
+            <div class="header-logo">
+                <a href="/">
+                    <svg preserveAspectRatio="xMidYMid meet" id="comp-jnkon541svgcontent" data-bbox="28.5 28 143 144" viewBox="28.5 28 143 144" height="40" width="40" xmlns="http://www.w3.org/2000/svg" data-type="color" role="img">
+                        <g>
+                            <path  style="fill: rgba(21, 69, 102, 1)" d="M171.5 108.6V91.3l-16.1-5.8c-1.4-5.3-3.5-10.2-6.2-14.8l7.4-15.5L144.5 43 129 50.4c-4.6-2.7-9.4-4.8-14.7-6.2L108.5 28H91.3l-5.8 16.2c-5.3 1.4-10.1 3.5-14.7 6.2L55.4 43l-12 12.2 7.4 15.5c-2.7 4.6-4.8 9.6-6.2 14.8l-16.1 5.8v17.3l16.1 5.8c1.4 5.3 3.5 10.2 6.2 14.8l-7.4 15.6L55.5 157l15.5-7.4c4.6 2.7 9.5 4.8 14.7 6.2l5.8 16.2h17.2l5.8-16.2c5.3-1.4 10.1-3.5 14.7-6.2l15.4 7.4 12.1-12.2-7.4-15.5c2.7-4.6 4.8-9.5 6.2-14.8l16-5.9zM100 128.8c-15.8 0-28.6-12.9-28.6-28.8S84.2 71.2 100 71.2s28.6 12.9 28.6 28.8-12.7 28.8-28.6 28.8z" fill="#736357" data-color="1"></path>
+                        </g>
+                    </svg>
+                    АСПР ГРУПП
+                </a>
             </div>
-
-
+            <p class="header-text">Производитель электрооборудования и систем автоматизации</p>
+            <div class="header-contact">
+                <p class="header-contact__phone"><a href="tel:+78129208162">+7 (812) 920-81-62</a></p>
+                <p class="header-contact__email"><a href="mailto:info@asprgroup.ru">info@asprgroup.ru</a></p>
+            </div>
+            <div @click="mobileMenuActive ? mobileMenuActive = false: mobileMenuActive=true" class="header-cart">
+                <span v-if="!mobileMenuActive" style="font-size: 30px">&#9776;</span>
+                <span v-else style="font-size: 30px">&#10006;</span>
+            </div>
         </div>
-        <div class="header-menu">
-            <div class="header-menu__wrapper">
-                <ul class="header-menu__nav">
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if ind %}link-active{% endif %}" href="/">Главная</a></li>
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if avt %}link-active{% endif %}"  href="{% url 'avtomatizaciya' %}">Автоматизация</a></li>
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if pr %}link-active{% endif %}"  href="{% url 'proizvodstvo' %}">Производство</a></li>
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if prj %}link-active{% endif %}"  href="{% url 'projects' %}">Проекты</a></li>
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if nap %}link-active{% endif %}"  href="{% url 'napravleniya' %}">Направления</a></li>
-                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if ab %}link-active{% endif %}"  href="{% url 'about' %}">О нас</a></li>
-{#                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if shp %}link-active{% endif %}"  href="{% url 'shop_index' %}">Магазин</a></li>#}
+    </div>
+    <div class="header-menu">
+        <div class="header-menu__wrapper">
+            <ul class="header-menu__nav">
+                <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if ind %}link-active{% endif %}" href="/">Главная</a></li>
+                <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if avt %}link-active{% endif %}"  href="{% url 'avtomatizaciya' %}">Автоматизация</a></li>
+                <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if pr %}link-active{% endif %}"  href="{% url 'proizvodstvo' %}">Производство</a></li>
+                <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if prj %}link-active{% endif %}"  href="{% url 'projects' %}">Проекты</a></li>
+                <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if nap %}link-active{% endif %}"  href="{% url 'napravleniya' %}">Направления</a></li>
+                <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if ab %}link-active{% endif %}"  href="{% url 'about' %}">О нас</a></li>
+                {#                    <li class="header-menu__nav-item"><a class="header-menu__nav-link {% if shp %}link-active{% endif %}"  href="{% url 'shop_index' %}">Магазин</a></li>#}
                 <li class="header-menu__nav-item has-submenu"><a class="header-menu__nav-link {% if shp %}link-active{% endif %}"  href="">Каталог</a>
-                        <div class="submenu">
-                            <ul>
-                                {% for cat in all_cats %}
+                    <div class="submenu">
+                        <ul>
+                            {% for cat in all_cats %}
                                 <li class="submenu-item {% if cat.subcats.all %}has-submenu-inner{% endif %}" >
                                     <a class="submenu-link" href="{% url 'shop_cat' cat.name_slug %}">{{ cat.name }}</a>
                                     {% if cat.subcats.all %}
                                         <div class="submenu submenu__inner">
-                                        <ul>
-                                            {% for subcat in  cat.subcats.all%}
-                                            <li class="submenu-item" ><a class="submenu-link" href="{% url 'shop_subcat' cat.name_slug subcat.name_slug %}">{{ subcat.name }}</a></li>
-                                            {% endfor %}
-                                            </li>
-
-                                        </ul>
-                                    </div>
+                                            <ul>
+                                                {% for subcat in  cat.subcats.all%}
+                                                    <li class="submenu-item" ><a class="submenu-link" href="{% url 'shop_subcat' cat.name_slug subcat.name_slug %}">{{ subcat.name }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
                                     {% endif %}
                                 </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="header-mobile-menu" :class="{'mobileMenuActive':mobileMenuActive}">
-            <ul class="header-mobile-menu-wrapper">
-                    <li class="header-mobile-menu-item"><a class="header-mobile-menu-link" href="/">Главная</a></li>
-                    <li class="header-mobile-menu-item"><a class="header-mobile-menu-link"  href="{% url 'avtomatizaciya' %}">Автоматизация</a></li>
-                    <li class="header-mobile-menu-item"><a class="header-mobile-menu-link"  href="{% url 'proizvodstvo' %}">Производство</a></li>
-                    <li class="header-mobile-menu-item"><a class="header-mobile-menu-link"  href="{% url 'projects' %}">Проекты</a></li>
-                    <li class="header-mobile-menu-item"><a class="header-mobile-menu-link"  href="{% url 'napravleniya' %}">Направления</a></li>
-                    <li class="header-mobile-menu-item"><a class="header-mobile-menu-link"  href="{% url 'about' %}">О нас</a></li>
-                    <li class="header-mobile-menu-item"><a class="header-mobile-menu-link"  href="">Каталог</a></li>
-                    <ul>
-                                {% for cat in all_cats %}
-                                <li class="{% if cat.subcats.all %}{% endif %}" >
-                                    <a class="header-mobile-menu-link" href="{% url 'shop_cat' cat.name_slug %}">{{ cat.name }}</a>
-                                    {% if cat.subcats.all %}
-                                        <div class="">
-                                        <ul>
-                                            {% for subcat in  cat.subcats.all%}
-                                            <li class="" ><a class="header-mobile-menu-link" href="{% url 'shop_subcat' cat.name_slug subcat.name_slug %}">{{ subcat.name }}</a></li>
-                                            {% endfor %}
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                    {% endif %}
-                                </li>
-                                {% endfor %}
-                            </ul>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
+    </div>
+    <div class="header-mobile-menu" :class="{'mobileMenuActive':mobileMenuActive}">
+        <ul class="header-mobile-menu-wrapper">
+            <li class="header-mobile-menu-item"><a class="header-mobile-menu-link" href="/">Главная</a></li>
+            <li class="header-mobile-menu-item"><a class="header-mobile-menu-link"  href="{% url 'avtomatizaciya' %}">Автоматизация</a></li>
+            <li class="header-mobile-menu-item"><a class="header-mobile-menu-link"  href="{% url 'proizvodstvo' %}">Производство</a></li>
+            <li class="header-mobile-menu-item"><a class="header-mobile-menu-link"  href="{% url 'projects' %}">Проекты</a></li>
+            <li class="header-mobile-menu-item"><a class="header-mobile-menu-link"  href="{% url 'napravleniya' %}">Направления</a></li>
+            <li class="header-mobile-menu-item"><a class="header-mobile-menu-link"  href="{% url 'about' %}">О нас</a></li>
+            <li class="header-mobile-menu-item"><a class="header-mobile-menu-link"  href="">Каталог</a></li>
+            <ul>
+                {% for cat in all_cats %}
+                    <li class="{% if cat.subcats.all %}{% endif %}" >
+                        <a class="header-mobile-menu-link" href="{% url 'shop_cat' cat.name_slug %}">{{ cat.name }}</a>
+                        {% if cat.subcats.all %}
+                            <div class="">
+                                <ul>
+                                    {% for subcat in  cat.subcats.all%}
+                                        <li class="" ><a class="header-mobile-menu-link" href="{% url 'shop_subcat' cat.name_slug subcat.name_slug %}">{{ subcat.name }}</a></li>
+                                    {% endfor %}
+                                    </li>
 
-    </header>
+                                </ul>
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </ul>
+    </div>
+</header>

@@ -125,16 +125,16 @@
                         <ul class="paginator">
                             {% if all_items.has_previous %}
                                 <li class="paginator-item">
-                                    <a class="paginator-link" href="?{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}" aria-label="Previous">
+                                    <a class="paginator-link" href="{{ canonical_url }}" aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
                             {% endif %}
                             {% for pg in all_items.paginator.page_range %}
                                 {% if all_items.number == pg %}
-                                    <li class="paginator-item link-active"><a class="paginator-link" href="?{% if pg > 1 %}page={{ pg }}{% endif %}{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}">{{pg}}</a></li>
+                                    <li class="paginator-item link-active"><a class="paginator-link" href="{% if pg >= 1 %}?page={{ pg }}{% endif %}{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}">{{pg}}</a></li>
                                 {% elif pg > all_items.number|add:'-6' and pg < all_items.number|add:'6' %}
-                                    <li class="paginator-item"><a class="paginator-link" href="?{% if pg > 1 %}page={{ pg }}{% endif %}{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}">{{pg}}</a></li>
+                                    <li class="paginator-item"><a class="paginator-link" href="{% if pg >= 1 %}?page={{ pg }}{% endif %}{% if param_search %}&search={{ param_search }}{% endif %}{% if param_filter %}&filter={{ param_filter }}{% endif %}{% if param_order %}&order={{ param_order }}{% endif %}{% if param_count %}&count={{ param_count }}{% endif %}">{{pg}}</a></li>
                                 {% endif %}
                             {% endfor %}
                             {% if all_items.has_next %}

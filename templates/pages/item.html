@@ -61,8 +61,8 @@
                     {% endif %}
 
                     {% if item.napryag %}
-                            <p class="modal-body-info__label">Напряжение, В: {{ item.napryag }}</p>
-                        {% endif %}
+                        <p class="modal-body-info__label">Напряжение, В: {{ item.napryag }}</p>
+                    {% endif %}
                     {% if item.power %}
                         <p class="modal-body-info__label">Мощность, кВт: {{ item.power }}</p>
                     {% endif %}
@@ -94,38 +94,27 @@
                     {% if item.kabel_input %}
                         <p class="modal-body-info__label">Кабельный ввод: {{ item.kabel_input }}</p>
                     {% endif %}
-
-
-
-
-
-
-
-
                     <a href="" @click.prevent="dialogVisible = true" class="modal-body-info__btn">Заказать</a>
+                    <el-dialog
+                            :visible.sync="dialogVisible"
+                            :show-close="false"
 
+                    >
+                        <el-input style="margin-bottom: 10px" placeholder="Ваше имя" v-model="name"></el-input>
+                        <el-input placeholder="Ваш телефон" v-model="phone"></el-input>
 
-<el-dialog
-
-  :visible.sync="dialogVisible"
-    :show-close="false"
-
-  >
-  <el-input style="margin-bottom: 10px" placeholder="Ваше имя" v-model="name"></el-input>
-    <el-input placeholder="Ваш телефон" v-model="phone"></el-input>
-
-  <span slot="footer" class="dialog-footer">
+                        <span slot="footer" class="dialog-footer">
 <a href="" @click.prevent="dialogVisible = true" class="modal-body-info__btn">Заказать</a>
 
   </span>
-</el-dialog>
+                    </el-dialog>
                 </div>
 
 
             </div>
-{% if item.full_description %}
-                       <div class="">{{ item.full_description | safe }}</div>
-                    {% endif %}
+            {% if item.full_description %}
+                <div class="">{{ item.full_description | safe }}</div>
+            {% endif %}
 
         </div>
     </section>

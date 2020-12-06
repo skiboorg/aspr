@@ -34,7 +34,7 @@ class SubCategory(models.Model):
         self.name_slug = slugify(self.name)
         self.name_lower = self.name.lower()
         super(SubCategory, self).save(*args, **kwargs)
-        
+
     def __str__(self):
         return f'{self.name}'
 
@@ -129,7 +129,8 @@ class Item(models.Model):
         else:
             return 'http://placehold.it/300'
 
-
+    def get_absolute_url(self):
+        return f'/catalog/items/{self.name_slug}/'
 
     def __str__(self):
         return f'{self.name}'

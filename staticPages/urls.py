@@ -12,9 +12,9 @@ urlpatterns = [
     path('about', views.about, name='about'),
     # path('create_item', views.create_item, name='create_item'),
 
-    path('index.html', RedirectView.as_view(url='/', permanent=False), name='index1'),
-    path('index.php', RedirectView.as_view(url='/', permanent=False), name='index2'),
-    # path('robots.txt', views.robots, name='robots'),
+    path('index.html', RedirectView.as_view(url='/', permanent=True), name='index1'),
+    path('index.php', RedirectView.as_view(url='/', permanent=True), name='index2'),
+    path('robots.txt', views.robots, name='robots'),
 
 
 ]

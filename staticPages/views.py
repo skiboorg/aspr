@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,HttpResponse
 from .models import *
 from openpyxl import load_workbook
 # import urllib
@@ -14,6 +14,7 @@ def avtomatizaciya(request):
     page_content = HomePage.objects.all().first()
     content = AvtomatizaciyaPage.objects.all().first()
     avt = True
+    canonical_url = '/avtomatizaciya'
     return render(request, 'pages/page.html', locals())
 
 def proizvodstvo_item(request,name_slug):
@@ -23,6 +24,7 @@ def proizvodstvo_item(request,name_slug):
     content = get_object_or_404(Manufactory,name_slug=name_slug)
     page_content = HomePage.objects.all().first()
     pr = True
+    canonical_url = f'/proizvodstvo/{name_slug}'
     return render(request, 'pages/page.html', locals())
 def proizvodstvo(request):
     showitems = True
@@ -32,6 +34,7 @@ def proizvodstvo(request):
     page_content = HomePage.objects.all().first()
     content = ProizvodsvoPage.objects.all().first()
     pr = True
+    canonical_url = '/proizvodstvo'
     return render(request, 'pages/page.html', locals())
 
 def projects(request):
@@ -40,6 +43,7 @@ def projects(request):
     page_title = 'АСПР Групп | Проекты'
     page_description = 'АСПР Групп | Санкт-Петербург | Промышленная автоматизация'
     all_projects = Project.objects.all()
+    canonical_url = '/projects'
     return render(request, 'pages/projects.html', locals())
 
 
@@ -49,6 +53,7 @@ def napravleniya(request):
     page_title = 'АСПР Групп | Направления'
     page_description = 'АСПР Групп | Санкт-Петербург | Промышленная автоматизация'
     content = WorkTypePage.objects.all().first()
+    canonical_url = '/napravleniya'
     return render(request, 'pages/worktype.html', locals())
 
 # def create_item(request):
@@ -133,6 +138,7 @@ def about(request):
     page_title = 'АСПР Групп | О нас'
     page_description = 'АСПР Групп | Санкт-Петербург | Промышленная автоматизация'
     content = AboutPage.objects.all().first()
+    canonical_url = '/about'
     return render(request, 'pages/about.html', locals())
 
 def index(request):
@@ -141,5 +147,17 @@ def index(request):
     page_title = 'АСПР Групп | Санкт-Петербург | Промышленная автоматизация'
     page_description = 'АСПР Групп | Санкт-Петербург | Промышленная автоматизация'
     page_content = HomePage.objects.all().first()
-
+    canonical_url = ''
     return render(request, 'pages/index.html', locals())
+
+def customhandler404(request, exception, template_name='404.html'):
+    all_cats = Category.objects.all()
+    is404 = True
+    pageTitle = '404 - Такой страницы не существует'
+
+
+    return render(request, 'pages/404.html', locals(),None,status=404)
+
+def robots(request):
+    robotsTxt = f"User-agent: *\nDisallow: /admin/\nHost: https://www.aspr.tech\nSitemap: https://www.aspr.tech/sitemap.xml"
+    return HttpResponse(robotsTxt, content_type="text/plain")

@@ -52,6 +52,9 @@ class Manufactory(models.Model):
     def __str__(self):
         return f'Элемент блока производство - {self.name}'
 
+    def get_absolute_url(self):
+        return f'/proizvodstvo/{self.name_slug}/'
+
     class Meta:
         verbose_name = "Элемент блока производство"
         verbose_name_plural = "Элементы блока производство"
