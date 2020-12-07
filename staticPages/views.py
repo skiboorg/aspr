@@ -19,8 +19,9 @@ def avtomatizaciya(request):
 
 def proizvodstvo_item(request,name_slug):
     all_cats = Category.objects.all()
-    page_title = 'АСПР Групп | Производство'
-    page_description = 'АСПР Групп | Санкт-Петербург | Промышленная автоматизация'
+    content = get_object_or_404(Manufactory, name_slug=name_slug)
+    page_title = f'{content.name} Производство в Санкт-Петербурге по выгодным ценам'
+    page_description = f'Проектирование и производство {content.name} в компании АСПР Групп. Большой опыт, гарантия на всю продукцию, современное оборудование. Звоните: ☎ +7 (812) 920-81-62'
     content = get_object_or_404(Manufactory,name_slug=name_slug)
     page_content = HomePage.objects.all().first()
     pr = True
@@ -29,8 +30,9 @@ def proizvodstvo_item(request,name_slug):
 def proizvodstvo(request):
     showitems = True
     all_cats = Category.objects.all()
-    page_title = 'АСПР Групп | Производство'
-    page_description = 'АСПР Групп | Санкт-Петербург | Промышленная автоматизация'
+    page_title = f'Производство в Санкт-Петербурге по выгодным ценам'
+    page_description = f'Проектирование и производство в компании АСПР Групп. Большой опыт, гарантия на всю продукцию, современное оборудование. Звоните: ☎ +7 (812) 920-81-62'
+
     page_content = HomePage.objects.all().first()
     content = ProizvodsvoPage.objects.all().first()
     pr = True
