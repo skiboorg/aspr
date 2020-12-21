@@ -161,5 +161,20 @@ def customhandler404(request, exception, template_name='404.html'):
     return render(request, 'pages/404.html', locals(),None,status=404)
 
 def robots(request):
-    robotsTxt = f"User-agent: *\nDisallow: /admin/\nHost: https://www.aspr.tech\nSitemap: https://www.aspr.tech/sitemap.xml"
+    robotsTxt = """User-agent: *
+Disallow:/admin/
+Disallow:/media/
+Disallow:/static/
+
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.css
+Allow: /*.js
+Allow: /*.webp    
+
+Sitemap: https://www.aspr.tech/sitemap.xml
+    """
+    # robotsTxt = f"User-agent: *\nDisallow: /admin/\nHost: https://www.aspr.tech\nSitemap: https://www.aspr.tech/sitemap.xml"
     return HttpResponse(robotsTxt, content_type="text/plain")
