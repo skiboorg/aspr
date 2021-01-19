@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404,HttpResponse
 from .models import *
-from openpyxl import load_workbook
+#from openpyxl import load_workbook
 # import urllib
 # from urllib.parse import urlparse
 # import requests

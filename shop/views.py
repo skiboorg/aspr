@@ -37,7 +37,7 @@ def shop_cat(request,cat_slug):
     category = get_object_or_404(Category, name_slug=cat_slug)
     canonical_url = f'/catalog/{cat_slug}'
     if page == '0' or page == '1':
-        h1 = f'{category.name}– купить в Санкт-Петербурге, цена в магазине АСПР Групп'
+        h1 = f'{category.name}'
         page_title = f'{category.name} купить в Санкт-Петербурге, цена в магазине АСПР Групп'
         page_description = f'Купить {category.name} по выгодным ценам в интернет-магазине АСПР Групп. Большой каталог. Гарантия на всю продукцию. Доставка по Санкт-Петербургу и всей России. Звоните: ☎ +7 (812) 920-81-62'
     else:
@@ -64,7 +64,7 @@ def shop_subcat(request,cat_slug,subcat_slug):
     subcategory = get_object_or_404(SubCategory, name_slug=subcat_slug)
     shp = True
     if page == '0' or page == '1':
-        h1 = f'{subcategory.name}– купить в Санкт-Петербурге, цена в магазине АСПР Групп'
+        h1 = f'{subcategory.name}'
         page_title = f'{subcategory.name} купить в Санкт-Петербурге, цена в магазине АСПР Групп'
         page_description = f'Купить {subcategory.name} по выгодным ценам в интернет-магазине АСПР Групп. Большой каталог. Гарантия на всю продукцию. Доставка по Санкт-Петербургу и всей России. Звоните: ☎ +7 (812) 920-81-62'
     else:
